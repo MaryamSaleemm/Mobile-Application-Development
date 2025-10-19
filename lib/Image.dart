@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
         width: 500,
         height: 600,
         decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage('assets/MPF Logo.png')),
+          image: DecorationImage(image: AssetImage('assets/MPFLogo.png')),
         ),
       ),
     );

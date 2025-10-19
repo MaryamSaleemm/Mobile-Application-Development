@@ -1,3 +1,7 @@
+/*// ListView → static, builds all items at once
+// ListView.builder → dynamic, builds items only when needed (better for big lists)
+*/
+
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/BasicStructure.dart';
 

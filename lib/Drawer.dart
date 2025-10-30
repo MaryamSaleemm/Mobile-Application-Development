@@ -7,40 +7,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text("Simple Drawer Example")),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                decoration: BoxDecoration(color: Colors.blue),
-                child: Text(
-                  "Menu",
-                  style: TextStyle(color: Colors.white, fontSize: 24),
+      home:Scaffold(
+        appBar: AppBar(title: Text('An App Bar'),),
+          drawer: Drawer(
+            backgroundColor: Colors.blue,
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                DrawerHeader(child: Text('A drawer header',style: TextStyle(fontSize:40,fontWeight: FontWeight.w500,))),
+                ListTile(
+                  leading: Icon(Icons.dashboard),
+                  title: Text('Dashboard'),
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
                 ),
-              ),
-              ListTile(
-                leading: Icon(Icons.home),
-                title: Text("Home"),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text("Settings"),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
+                ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text('Settings'),
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                )
+              ],
+            ),
+          )
         ),
-        body: Center(
-          child: Text("Swipe from left or tap the menu icon"),
-        ),
-      ),
     );
   }
 }

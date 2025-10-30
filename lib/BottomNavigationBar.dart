@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: MyApp(),
+  ));
 }
-
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -12,45 +14,35 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int _selectedIndex = 0; // Track selected tab
+ int Index = 0;
 
-  // List of screens for each tab
-  final List<Widget> _pages = [
-    Center(child: Text('This is Home Page', style: TextStyle(fontSize: 18))),
-    Center(child: Text('This is Login Page', style: TextStyle(fontSize: 18))),
-    Center(child: Text('This is Subscribe Page', style: TextStyle(fontSize: 18))),
-  ];
+ final List<Widget> pages = [
+   Center(child: Text('this a home page',style: TextStyle(fontSize: 20),),),
+   Center(child: Text('this a login page',style: TextStyle(fontSize: 20),),),
+   Center(child: Text('this a subscribe page',style: TextStyle(fontSize: 20),),)
+ ];
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(title: Text('Bottom Navigation Example')),
-        body: _pages[_selectedIndex], // Show selected page
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _selectedIndex, // Highlight current tab
-          onTap: (index) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('This is a bottom navigation bar'),
+      ),
+      body: pages[Index],
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: Index,
+          onTap: (index){
             setState(() {
-              _selectedIndex = index; // Change page when tapped
+              Index = index;
             });
           },
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.login),
-              label: "Login",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.subscriptions),
-              label: "Subscribe",
-            ),
-          ],
-        ),
-      ),
+          items: [
+        BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home',),
+            BottomNavigationBarItem(icon: Icon(Icons.login),label: ',Login',),
+            BottomNavigationBarItem(icon: Icon(Icons.subscriptions),label: 'Subscribe',)
+
+
+      ]),
     );
   }
 }
